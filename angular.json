@@ -133,6 +133,41 @@
           }
         }
       }
+    },
+    "ag-gun": {
+      "root": "projects/ag-gun",
+      "sourceRoot": "projects/ag-gun/src",
+      "projectType": "library",
+      "prefix": "ag",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ag-gun/tsconfig.lib.json",
+            "project": "projects/ag-gun/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ag-gun/src/test.ts",
+            "tsConfig": "projects/ag-gun/tsconfig.spec.json",
+            "karmaConfig": "projects/ag-gun/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ag-gun/tsconfig.lib.json",
+              "projects/ag-gun/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ag-gun-app"
