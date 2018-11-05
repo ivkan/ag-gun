@@ -1,6 +1,17 @@
 {
     "name": "ag-gun-app",
-    "version": "0.0.0",
+    "version": "0.0.1",
+    "description": "Angular wrapper for Gun",
+    "keywords": [
+        "angular",
+        "gun",
+        "rxjs"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ivkan/ag-gun.git"
+    },
+    "license" : "SEE LICENSE IN LICENSE",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",

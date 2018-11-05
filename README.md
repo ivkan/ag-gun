@@ -1,27 +1,61 @@
-# AgGunApp
+# ag-Gun
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
+Angular 6+ wrapper for [Gun](https://github.com/amark/gun), a realtime, distributed, offline-first, graph database engine. Support server-side rendering.
 
-## Development server
+> GUN is a small, easy, and fast data sync and storage system that runs everywhere JavaScript does. The aim of GUN is to let you focus on the data that needs to stored, loaded, and shared in your app without worrying about servers, network calls, databases, or tracking offline changes or concurrency conflicts.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Install
+```
+npm i ag-gun --save
+```
 
-## Code scaffolding
+## API
+The `AgGun` service is a wrapper around the native [`Gun API's`](https://gun.eco/docs/API):
+* `.opt(options)`
+* `.get(key)`
+* `.put(data)`
+* `.set(data)`
+* `.back()`
+* `.map(callback)`
+* `.open()`
+* `.on()`
+* `.once()`
+* `.list(callback)` ( very similar to `.on`, except that it gives you an array with each update. A callback function that transforms the data as it passes through. If the data is transformed to undefined it gets filtered out of the chain )
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+First, import the `AgGunModule` with options to your `AppModule`:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```typescript
+import { AgGunModule } from 'ag-gun';
 
-## Running unit tests
+@NgModule({
+  imports: [ 
+      AgGunModule.forRoot({
+            peers: ['https://localhost:8080/gun']
+          })
+   ]
+})
+export class AppModule { }
+```
+After adding `AgGun` service to your component:
+```typescript
+import { Component } from '@angular/core';
+import { AgGun } from 'ag-gun';
+import { Observable } from 'rxjs';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@Component({
+  selector   : 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls  : ['./app.component.scss']
+})
+export class AppComponent
+{
+  items$: Observable<any[]>;
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  constructor(private agGun: AgGun)
+  {
+    this.items$ = this.agGun.get('schema').list();
+  }
+}
+```
