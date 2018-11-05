@@ -11,17 +11,23 @@
         "type": "git",
         "url": "git+https://github.com/ivkan/ag-gun.git"
     },
-    "license" : "SEE LICENSE IN LICENSE",
+    "license": "MIT",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
-        "test": "ng test",
-        "lint": "ng lint",
-        "e2e": "ng e2e",
-        "build_lib": "ng build ag-gun",
+        "build_lib": "ng build --prod ag-gun",
+        "copy-license": "cp ./LICENSE ./dist/ag-gun",
+        "copy-readme": "cp ./README.md ./dist/ag-gun",
+        "copy-files": "npm run copy-license && npm run copy-readme",
         "npm_pack": "cd dist/ag-gun && npm pack",
-        "package": "npm run build_lib && npm run npm_pack"
+        "package": "npm run build_lib && npm run copy-files && npm run npm_pack",
+        "test": "ng test",
+        "test_lib": "ng test ag-gun",
+        "lint": "ng lint",
+        "lint_lib": "ng lint ag-gun",
+        "e2e_lib": "ng e2e",
+        "e2e": "ng e2e ag-gun"
     },
     "private": true,
     "dependencies": {
