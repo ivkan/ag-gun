@@ -20,7 +20,7 @@ The `AgGun` service is a wrapper around the native [`Gun API's`](https://gun.eco
 * `.open()`
 * `.on()`
 * `.once()`
-* `.list(callback)` ( very similar to `.on`, except that it gives you an array with each update. A callback function that transforms the data as it passes through. If the data is transformed to undefined it gets filtered out of the chain )
+* `.list()` ( very similar to `.on`, except that it gives you an array with each update.
 
 ## Usage
 

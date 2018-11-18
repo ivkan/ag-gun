@@ -5,9 +5,9 @@ export function isNil(obj: any): boolean
     return obj === undefined || obj === null;
 }
 
-export function isAgGun(value: any): boolean
+export function isAgGunFactory(value: any): boolean
 {
-    return !isNil(value) && typeof value === 'object' && value.constructor.name === 'AgGun';
+    return !isNil(value) && typeof value === 'object' && value.constructor.name === 'AgGunFactory';
 }
 
 export function extractData(data: any, key: string): any

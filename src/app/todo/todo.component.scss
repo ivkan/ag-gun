@@ -1,0 +1,153 @@
+.example-container {
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.example-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    color: #fff;
+    background: #3f51b5;
+}
+
+.example-sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 240px;
+    background: #f5f5f5;
+}
+
+.example-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 64px;
+    max-height: 64px;
+    height: 64px;
+    padding: 12px 12px 12px 20px;
+    width: 224px;
+}
+
+.docs-angular-logo {
+    height: 26px;
+    margin: 0 4px 3px 0;
+    vertical-align: middle;
+}
+
+.flex-spacer {
+    flex-grow: 1;
+}
+
+:host {
+    width: 100%;
+
+    .center {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+
+        .header {
+            display: flex;
+            height: 80px;
+            min-height: 80px;
+            max-height: 80px;
+            color: #fff;
+            background: #3f51b5;
+        }
+
+        .content-card {
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            overflow: hidden;
+            box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+
+            .content {
+                flex: 1 1 auto;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .toolbar {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex: 1 1 auto;
+                border-bottom: 1px solid rgba(0, 0, 0, .12);
+                height: 64px;
+                min-height: 64px;
+                max-height: 64px;
+            }
+        }
+
+        .content-card {
+
+            .toolbar {
+
+                .toolbar-separator {
+                    height: 32px;
+                    width: 1px;
+                    margin: 0 12px;
+                }
+            }
+
+            @media screen and (max-width: 1919px) {
+                app-todo-list {
+                    border-right: 0;
+                }
+
+                app-todo-list,
+                app-todo-details {
+                    flex: 1 0 100%;
+                }
+
+                app-todo-details {
+                    display: none !important;
+                }
+
+                &.current-todo-selected {
+
+                    .toolbar {
+                        padding-left: 16px !important;
+
+                        .todo-selection {
+                            display: none !important;
+                        }
+                    }
+
+                    .content {
+
+                        app-todo-list {
+                            display: none !important;
+                        }
+
+                        app-todo-details {
+                            display: flex !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

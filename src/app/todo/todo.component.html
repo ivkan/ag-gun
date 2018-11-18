@@ -1,0 +1,61 @@
+<!-- TOOLBAR -->
+<mat-toolbar class="example-header mat-elevation-z4">
+    <div class="navbar-top">
+        <div class="logo">
+            AG-GUN DEMO
+        </div>
+
+        <button mat-icon-button class="toggle-sidebar-folded" (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+
+    <div class="flex-spacer"></div>
+
+    <a mat-button href="https://github.com/ivkan/ag-gun" target="_blank">
+        <img alt="ag-gun" class="docs-angular-logo" src="/assets/images/github-circle-white-transparent.svg">
+        GitHub
+    </a>
+</mat-toolbar>
+<!-- / TOOLBAR -->
+
+<mat-sidenav-container class="example-container">
+
+    <!-- SIDEBAR -->
+    <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
+         <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <!-- / SIDEBAR -->
+
+    <mat-sidenav-content>
+
+        <!-- CENTER -->
+        <div class="center">
+
+            <!-- CONTENT HEADER -->
+            <div class="header p-24" fxLayout="row" fxLayoutAlign="start center">
+                <div>
+                    TODO app with the GUN realtime, decentralized, offline-first, graph database engine and Angular
+                </div>
+            </div>
+            <!-- / CONTENT HEADER -->
+
+            <!-- CONTENT CARD -->
+            <div class="content-card" [ngClass]="{'current-todo-selected':currentTodo}">
+
+                <!-- CONTENT -->
+                <div class="content" fxFlexAlign="row">
+                    <app-todo-list fxFlex></app-todo-list>
+                    <app-todo-details fxFlex></app-todo-details>
+                </div>
+                <!-- / CONTENT -->
+
+            </div>
+            <!-- / CONTENT CARD -->
+
+        </div>
+        <!-- / CENTER -->
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

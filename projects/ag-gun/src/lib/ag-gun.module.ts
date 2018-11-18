@@ -1,13 +1,20 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { InjectionToken, ModuleWithProviders, NgModule } from '@angular/core';
+
+import * as Gun from 'gun';
+import 'gun/lib/open';
 
 import { AgGunOptions } from './ag-gun.options';
-import { GunZoneScheduler } from './ag-gun-scheduler';
+import { BehaviorSubject } from 'rxjs';
+import { isEmpty } from './utils';
 
-@NgModule({
-    providers: [
-        GunZoneScheduler
-    ]
-})
+export const agGunOptions = new InjectionToken<AgGunOptions>('agGunOptions.app.options');
+
+export function initGun(options: AgGunOptions): Function
+{
+    return isEmpty(options) ? new Gun() : new Gun({...options});
+}
+
+@NgModule()
 export class AgGunModule
 {
     static forRoot(config?: AgGunOptions): ModuleWithProviders
@@ -15,7 +22,10 @@ export class AgGunModule
         return {
             ngModule : AgGunModule,
             providers: [
-                {provide: 'agGunOptions', useValue: config}
+                {provide: agGunOptions, useValue: config},
+                {provide: 'listenMap', useValue: new Map<string, any>()},
+                {provide: 'subjectMap', useValue: new Map<string, BehaviorSubject<any>[]>()},
+                {provide: 'Gun', useFactory: initGun, deps: [agGunOptions]}
             ]
         };
     }

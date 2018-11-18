@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Muli', serif;
+}
+
+body.page {
+    margin: 0
+}
+
+.p-24 {
+    padding: 24px;
+}
+
+.w-100-p {
+    width: 100%;
+}
+
+.accent {
+    background-color: #3f51b5 !important;
+    color: #fff !important;
+}
+
+.mt-20 {
+    margin-top: 20px !important;
+}
+
+.mr-16 {
+    margin-right: 16px!important;
+}
+
+.px-24 {
+    padding-right: 24px!important;
+    padding-left: 24px!important;
+}
+
+.py-8 {
+    padding-top: 8px!important;
+    padding-bottom: 8px!important;
+}
+
+.amber-fg {
+    color: #ffc107!important;
+}
+
+.red-fg {
+    color: #f44336!important;
+}
+
+.secondary-text {
+    color: rgba(0,0,0,.54);
+}
+
+.hint-text {
+    color: rgba(0,0,0,.38);
+}
+
+.ml-8 {
+    margin-left: 8px!important;
+}
+
+.mb-24 {
+    margin-bottom: 24px;
+}

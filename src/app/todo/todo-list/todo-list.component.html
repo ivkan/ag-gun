@@ -1,0 +1,11 @@
+<div *ngIf="tasks.length === 0" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+    <span class="no-tasks-text hint-text">There are no tasks!</span>
+</div>
+<div class="todo-list">
+    <app-todo-list-item class="todo-list-item has-handle"
+                        *ngFor="let todo of tasks" [todo]="todo"
+                        [ngClass]="{'current-todo':todo?.id == currentTodo?.id}"
+                        [routerLink]="'/todo/all/' + todo.id"
+                        matRipple>
+    </app-todo-list-item>
+</div>

@@ -1,0 +1,32 @@
+<div class="p-24">
+
+    <button mat-raised-button
+            class="mat-accent add-todo-button w-100-p"
+            [routerLink]="'/todo/all/new'"
+            aria-label="ADD TASK">
+        ADD TASK
+    </button>
+
+
+    <div class="nav mt-20">
+
+        <div class="nav-item">
+            <a class="nav-link" matRipple [routerLink]="'/todo/all'"
+               [routerLinkActive]="['active', 'accent']">
+                <mat-icon class="nav-link-icon">view_headline</mat-icon>
+                <span>All</span>
+            </a>
+        </div>
+
+        <div class="nav-subheader">FILTERS</div>
+
+        <div class="nav-item" *ngFor="let filter of filters$ | async">
+            <a class="nav-link" matRipple [routerLink]="'/todo/filter/' + filter.handle"
+               [routerLinkActive]="['active', 'accent']">
+                <mat-icon class="nav-link-icon" *ngIf="filter.icon">{{filter.icon}}</mat-icon>
+                <span>{{filter.title}}</span>
+            </a>
+        </div>
+
+    </div>
+</div>
