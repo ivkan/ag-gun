@@ -1,7 +1,6 @@
 import { InjectionToken, ModuleWithProviders, NgModule } from '@angular/core';
 
 import * as Gun from 'gun';
-import 'gun/lib/open';
 
 import { AgGunOptions } from './ag-gun.options';
 import { BehaviorSubject } from 'rxjs';

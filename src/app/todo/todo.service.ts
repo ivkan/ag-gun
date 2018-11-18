@@ -22,11 +22,6 @@ export class TodoService implements Resolve<any>
     {
         this.onCurrentTodoChanged = new BehaviorSubject([]);
         this.taskFilterChanged    = new BehaviorSubject<string>(null);
-
-        setTimeout(() =>
-        {
-            console.log(this._agGun.subjectMap);
-        }, 0);
     }
 
     /**

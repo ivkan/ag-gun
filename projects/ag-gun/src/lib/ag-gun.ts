@@ -1,7 +1,6 @@
 import { Inject, Injectable, NgZone, PLATFORM_ID } from '@angular/core';
 
 import * as Gun from 'gun';
-import 'gun/lib/open';
 
 import { BehaviorSubject } from 'rxjs';
 

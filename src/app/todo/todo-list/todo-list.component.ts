@@ -37,10 +37,6 @@ export class TodoListComponent implements OnInit, OnDestroy
 
     ngOnInit()
     {
-        setTimeout(() =>
-        {
-            console.log(this._agGun.subjectMap);
-        }, 0);
         this._todoService.taskFilterChanged
             .pipe(
                 switchMap((filter: string) =>
@@ -48,7 +44,6 @@ export class TodoListComponent implements OnInit, OnDestroy
                     return this.tasks$.pipe(
                         map((tasks: any[]) =>
                         {
-                            console.log(tasks);
                             if (!!filter)
                             {
                                 return tasks.filter(task => !!task[filter]);
