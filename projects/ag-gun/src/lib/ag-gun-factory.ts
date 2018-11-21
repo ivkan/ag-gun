@@ -207,7 +207,9 @@ export class AgGunFactory
      */
     getActiveSubjects(key: string): BehaviorSubject<any>[]
     {
-        return this.agGun.subjectMap.get(key).filter(subject => !subject.isStopped);
+        const subjects = this.agGun.subjectMap.get(key) || [];
+
+        return subjects.filter(subject => !subject.isStopped);
     }
 
     /**
