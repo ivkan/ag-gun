@@ -16,7 +16,7 @@ export class AgGun
         public zone: NgZone,
         @Inject('listenMap') public listenMap: Map<string, any>,
         @Inject('subjectMap') public subjectMap: Map<string, BehaviorSubject<any>[]>,
-        @Inject('Gun') public gun: Map<string, BehaviorSubject<any>[]>,
+        @Inject('Gun') public gun: any,
     )
     {
     }
