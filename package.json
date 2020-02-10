@@ -53,6 +53,9 @@
     },
     "devDependencies": {
         "serialize-javascript": ">=2.1.1",
+        "set-value": ">=2.0.1",
+        "tar": ">=2.2.2",
+        "webpack-dev-server": ">=3.1.11",
         "@angular-devkit/build-angular": "~0.10.0",
         "@angular-devkit/build-ng-packagr": "~0.10.0",
         "@angular/cli": "~7.0.4",
